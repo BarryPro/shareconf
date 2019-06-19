@@ -20,49 +20,56 @@ cnoremap <C-L> <End>
 nmap <leader>q :wq!<CR>
 " 展示代码结构
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :PrevimOpen<CR>
 " 可以运行java代码
 map <F5> :!javac %&&java %:r <CR>
+com! FormatJSON %!python3 -m json.tool
 
-" 设置vundle的运行路径
-set rtp+=~/.vim/bundle/Vundle.vim
-" 使用vundle管理插件,插件安装放到begin和end之间
-call vundle#begin()
-" vundle插件管理器
-Plugin 'VundleVim/Vundle.vim'
+" 使用Plug管理插件,插件安装放到begin和end之间
+call plug#begin('~/.vim/plugged')
 " 目录管理器插件
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 " 在字符串周围添加字符
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " 状态栏插件
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " 状态栏主题插件
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 " 缩进线插件
-" Plugin 'valloric/vim-indent-guides'
+" Plug 'valloric/vim-indent-guides'
 " 主题插件
-Plugin 'w0ng/vim-hybrid'
+Plug 'w0ng/vim-hybrid'
 " 启动vim插件可以展示最近常打开的文件
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 " 自动补全[] {} ()等
-Plugin 'raimondi/delimitmate'
+Plug 'raimondi/delimitmate'
 " 缓存间切换共享缓存
-Plugin 'bling/vim-bufferline'
+Plug 'bling/vim-bufferline'
 " 代码检查语法插件
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " 用于展示代码的结构标签
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 " 全局搜索文件内容,默认快捷键ctrl+p搜索全局文件
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " 支持json格式语法
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json'
 " 支持Python运行等
-Plugin 'klen/python-mode'
+Plug 'klen/python-mode'
 " 支持scale语法
-Plugin 'derekwyatt/vim-scala'
-call vundle#end()
+Plug 'derekwyatt/vim-scala'
+" 支持各种颜色主题
+Plug 'flazz/vim-colorschemes'
+" 支持markdown数学语法
+Plug 'iamcco/mathjax-support-for-mkdp'
+" 支持markdown语法预览
+Plug 'iamcco/markdown-preview.vim'
+" vim生成目录插件
+Plug 'mzlogin/vim-markdown-toc'
+call plug#end()
 
 " 设置颜色主题
+set background=dark
 colorscheme hybrid
 
 " 常用的vim设置
@@ -98,6 +105,17 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 "窗口大小"
 let NERDTreeWinSize=25
 
+" for normal mode
+nmap <silent> <F6> <Plug>MarkdownPreview
+" for insert mode
+imap <silent> <F6> <Plug>MarkdownPreview
+" for normal mode
+nmap <silent> <F7> <Plug>StopMarkdownPreview
+" for insert mode
+imap <silent> <F7> <Plug>StopMarkdownPreview
+" 设置默认浏览器打开
+let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+let g:mkdp_auto_close=0
 " 设置缩进展示
 " let g:indent_guides_enable_on_vim_startup = 1 " 添加行，vim启动时启用
 " let g:indent_guides_start_level = 1           " 添加行，开始显示对齐线的缩进级别
