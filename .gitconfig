@@ -1,0 +1,31 @@
+[user]
+	name = 于成龙
+	email = yuchenglong03@meituan.com
+[color]
+ui = auto
+branch = auto
+diff = auto
+status = auto
+[color "branch"]
+current = green
+local = yellow
+remote = red
+[color "diff"]
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+[color "status"]
+added = yellow
+changed = green
+untracked = cyan
+[alias]
+st = status
+di = diff
+ci = commit
+co = checkout
+br = branch
+
+[core]
+	quotepath = false
+	autocrlf = input
