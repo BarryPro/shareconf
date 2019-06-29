@@ -114,7 +114,7 @@ nmap <silent> <F7> <Plug>StopMarkdownPreview
 " for insert mode
 imap <silent> <F7> <Plug>StopMarkdownPreview
 " 设置默认浏览器打开
-let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+let g:mkdp_path_to_chrome = "firefox"
 let g:mkdp_auto_close=0
 " 设置缩进展示
 " let g:indent_guides_enable_on_vim_startup = 1 " 添加行，vim启动时启用
