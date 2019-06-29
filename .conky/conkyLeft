@@ -1,0 +1,161 @@
+#Purisa     Comic Sans MS  
+#是否嵌入桌面，“no”表示不嵌入；“yes”表示嵌入
+background yes
+
+#xftfont sans-serif:size=10：设置一个默认字体，在下面的样式定义段可以特别定义使用别的字体，如不特别指定，则使用默认字体；这里最好选则一个等宽中文字体，比如我这里选的就是“sans-serif”，字体大小为“10”
+xftfont sans-serif:size=15
+#xftfont Sans:size=10
+
+#是否使用xft字体，一般为“yes”
+use_xft yes
+
+xftalpha 0.9
+
+#刷新时间
+update_interval 5.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+#total_run_times 0
+
+#输出到窗口,no则不显示出conky框
+#自己的窗口，这样可以不闪
+own_window yes
+
+# If own_window is yes, you may use type normal, desktop or override
+own_window_type normal
+
+# Use pseudo transparency with own_window?
+#背景透明
+own_window_transparent yes
+
+# If own_window is yes, these window manager hints may be used
+#基本含意按顺序是 ：不装饰窗口（我们定义了他是个独立的窗口），永远在根窗口上（也就是屏幕），粘滞起来（不能让他乱跑），无视一切1，无视一切2
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+#是否输出结果到终端，主要在判断Conky在哪里出错时使用，一般情况下为“no”即可。
+out_to_console no
+
+# Use double buffering (reduces flicker, may not work for everyone)
+#双倍缓存，用Ubuntu，不想看闪屏就这样写
+double_buffer yes
+
+#设定Conky的边界范围，最小宽度为280像素，最小高度为5像素，一般没有用，我这里没有使用，前面插入“#”号表示注释掉。
+minimum_size 280 5
+#Conky边界范围最大宽度308像素，很多时候用这个参数来限制Conky的边界。
+maximum_width 308
+
+#阴影
+# Draw shades?字体绘制阴影，想好看得开着
+draw_shades yes
+
+# Draw outlines?  yes:字体外面包裹一层颜色    不要下划线
+draw_outline no
+
+# Draw borders around text   yes:线条勾勒出conky框 
+#draw_borders no  不要边框
+draw_borders no
+
+# Draw borders around graphs  是否描绘图表方框，如下面网络上传下载方框
+draw_graph_borders yes
+
+# border(边框、框线 边框) margins（边缘）.边框宽度 0
+border_margin 0
+
+# border width(宽度)
+#border_width 0
+
+#设定Conky默认颜色，在样式定义中可以设定使用任何一种颜色，如果没有设置则采用缺省的颜色。这里设定缺省颜色为“white”，也可以用16位值表示的颜色值，如“#0A0F00”
+default_color white
+default_shade_color black
+default_outline_color green
+
+#设定Conky输出范围在屏幕上的位置，“top_right”表示右上方，依此类推，“bottom_left”是左下角
+#alignment top_right
+alignment bottom_left
+#alignment bottom_right
+#alignment none
+
+#以下两条设定Conky输出范围距离屏幕边界的像素数量，最小为10像素
+gap_x 20
+gap_y 50
+
+# Subtract(减掉) file system buffers(缓冲器,减震器) from used memory?
+no_buffers yes
+
+#如果值设为“yes”则所有输出的文字都变成大写字母
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+#强制用UTF8解码，谁都不想看乱码
+override_utf8_locale yes
+
+#不受WM控制的霸道语句（不懂）
+#own_window_type override
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+
+# Shows the maximum value in scaled graphs.
+show_graph_scale no
+
+# Shows the time range covered by a graph.
+show_graph_range no
+
+# Allow each port monitor to track at most this many connections (if 0 or not set, default is 256)
+#max_port_monitor_connections 256
+
+# Maximum number of special things, e.g. fonts, offsets, aligns, etc.
+#max_specials 512
+
+# Maximum size of buffer for user text, i.e. below TEXT line.
+#max_user_text 16384
+
+# Timing interval for music player thread, e.g. mpd, audacious
+#music_player_interval (update_interval is default)
+
+# Strictness of if_up. One of: up, link or address. The later ones imply the further ones.
+# Defaults to up.
+#if_up_strictness address
+
+# variable is given either in format $variable or in ${variable}. Latter
+# allows characters right after the variable and must be used in network
+# stuff because of an argument
+
+# stuff after 'TEXT' will be formatted on screen
+
+own_window_argb_value 0
+own_window_argb_visual yes
+own_window_colour 000000
+TEXT
+
+${color grey}${font eufm10,LyX:style=bold:size=25}Barry's Linux ${font ConkyColorsLogos:size=25}d${hr}
+#系统名
+${color white}${font Purisa:style=Bold:size=11}Hostname: ${font Purisa:style=Bold:size=10}$alignr$nodename
+#内核
+${color white}${font Comic Sans MS:size=10}System Kernel: ${font Comic Sans MS:size=10}$alignr$kernel
+#运行时间
+${color white}${font Comic Sans MS:size=10}Run Time: ${font Purisa:style=Bold:size=10}$alignr$uptime
+#Cpu频率
+${color white}${font Comic Sans MS:size=10}Cpu Frequency: ${font Purisa:style=Bold:size=10}${alignr}${freq} MHz
+#cpu温度  
+${color white}${font Comic Sans MS:size=10}Cpu Temperature: ${font Purisa:style=Bold:size=10}${alignr}${acpitemp}°C
+${color white}${font Comic Sans MS:size=10}
+${hr}
+#本地IP地址
+${color snow}${font Comic Sans MS:size=10}Net Address: ${alignc}${font Purisa:style=Bold:size=10}${color snow}${addr eth0}
+${hr}
+Inbound Connection ${alignr} Local Service/Port$color
+${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
