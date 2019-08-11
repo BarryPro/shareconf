@@ -21,6 +21,8 @@ nmap <leader>q :wq!<CR>
 " 展示代码结构
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :PrevimOpen<CR>
+vmap <c-c> "+y
+vmap yy "+y
 " 可以运行java代码
 map <F5> :!javac %&&java %:r <CR>
 com! FormatJSON %!python3 -m json.tool
@@ -93,6 +95,8 @@ set softtabstop=4
 set ambiwidth=double
 " 设置支持鼠标选中与滚动
 set mouse=a
+" 设置系统剪切板使用默认的无名寄存器
+set clipboard=unnamed
 
 " NERDTree设置
 " F2开启和关闭树"
@@ -121,6 +125,5 @@ let g:mkdp_auto_close=0
 " let g:indent_guides_start_level = 1           " 添加行，开始显示对齐线的缩进级别
 " let g:indent_guides_guide_size = 1            " 添加行，对齐线的宽度，（1字符）
 " let g:indent_guides_tab_guides = 0            " 添加行，对tab对齐的禁用
-
 " 配置ctag命令路径
 let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
