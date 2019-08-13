@@ -95,8 +95,6 @@ set softtabstop=4
 set ambiwidth=double
 " 设置支持鼠标选中与滚动
 set mouse=a
-" 设置系统剪切板使用默认的无名寄存器
-set clipboard=unnamed
 
 " NERDTree设置
 " F2开启和关闭树"
